@@ -1,0 +1,9 @@
+#include <stdio>
+int main()
+{
+  str name;
+  
+  printf ("input your name : "); scanf("%s", &name)"
+  
+  printf ("your name is : %s", name);
+}
