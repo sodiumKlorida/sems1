@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{
+
+    //if
+    int angka = 1;
+    cout << "masukan angka : ";
+    cin  >> angka; 
+    if (angka == 1) //jika angka adalah 1
+    {
+        cout << angka; //maka akan di outputkan angka 1 
+    }
+    else 
+    cout << "angka tidak terdeteksi";
