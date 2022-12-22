@@ -1,0 +1,436 @@
+#include <iostream>
+
+using namespace std;
+
+void clear()    // ========================================================================================= clear 
+{
+	system("cls");
+}
+
+void loop(string array[], int index) // ==================================================================== loop array 
+{
+	for (int i = 0; i < index; i++)
+	{
+		cout << array[i] << endl;
+	}
+}
+
+void today() 	// ========================================================================================= banner time line 
+{
+	cout <<           "___________________________________________________________________________________" << endl;
+	cout <<           "|                                                                                 |" << endl;
+	cout <<           "|                              PENERBANGAN HARI INI                               |" << endl;
+	cout <<           "|_________________________________________________________________________________|" << endl;
+	string today[] = {"| KODE PENERBANGAN | MASKAPAI  | DARI       | TUJUAN       | WAKTU                |\n",
+	                  
+					  "| DOM04            | Citilink  | Pontianak  | Jakarta      | kamis  15:00 - 16:35 |\n",
+					  
+					  "| DOM06            | Garuda    | Manokwari  | Padang       | kamis  16:15 - 18:00 |\n",
+					  
+					  "| DOM01            | Lion Air  | Surabaya   | Jakarta      | kamis  17:10 - 17:50 |\n",
+					  
+					  "| DOM07            | Sriwijaya | Surabaya   | Jakarta      | kamis  15:00 - 16:35 |\n",
+					  
+					  "| DOM16            | Lion Air  | Manokwari  | Palembang    | kamis  16:15 - 18:00 |\n",
+					  
+					  "| DOM11            | Lion Air  | Surabaya   | Jakarta      | kamis  17:10 - 17:50 |\n",
+					  
+					  "| DOM76            | Air asia  | Surabaya   | Padang       | kamis  16:15 - 18:00 |\n"};
+	int index = sizeof(today)/sizeof(*today);
+	loop(today,index);
+}
+
+void tersedia() // ========================================================================================= banner tiket tersedia 
+{
+	cout <<               "_____________________________________________________________________________________" << endl;
+	cout <<               "|                                                                                   |" << endl;
+	cout <<               "|                                PENERBANGAN TERSEDIA                               |" << endl;
+	cout <<               "|___________________________________________________________________________________|\n";
+	string tersedia[] =  {"| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n",
+	                  
+					 	  "| 1.  DOM...         | Citilink | Pontianak  | Jakarta       | jumat  15:00 - 16:35 |\n",
+					  
+					 	  "| 2.  DOM...         | Garuda   | Manokwari  | Padang        | sabtu  16:15 - 18:00 |\n",
+					  
+					  	  "| 3.  LN....         | Lion Air | Jakarta    | bangkok(Thai) | minggu 17:10 - 19:50 |\n",
+					  	  
+					  	  "| 4.  DOM...         | Citilink | Pontianak  | Jakarta       | senin  18:00 - 19:35 |\n",
+					  	  
+					  	  "| 5.  DOM...         | Garuda   | Manokwari  | Padang        | selasa 19:15 - 21:00 |\n",
+					  	  
+					  	  "| 6.  DOM...         | Lion Air | Surabaya   | Jakarta       | rabu   22:10 - 23:50 |\n",
+						  
+						  "(x) kembali\n"};
+	int index = sizeof(tersedia)/sizeof(*tersedia);
+	loop(tersedia,index);
+		
+}
+
+void payment()  // ========================================================================================= menu pembayaran
+{
+	string bayar[] = {"<< PEMBAYARAN >>",
+                      "1. Virtual account",
+                      "2. M-banking",
+                      "3. Mitra",
+					  "(x). main menu"};
+	int index = sizeof(bayar)/sizeof(*bayar);
+	loop(bayar,index);
+}
+void vakun() 	// virtual acount 
+
+{
+    string mbayar[] = {"<< PEMBAYARAN >>",
+                       "1. Go-pay",
+                       "2. Link aja",
+					   "(x). main menu"};
+	int index = sizeof(mbayar)/sizeof(*mbayar);
+	loop(mbayar,index);
+}
+void mbank() 	// mbanking
+{
+    string baayar[] = {"<< PEMBAYARAN >>",
+                       "1. M-BCA",
+                       "2. Livin mandiri",
+					   "(x). main menu"};
+	int index = sizeof(baayar)/sizeof(*baayar);
+	loop(baayar,index);
+}
+void mitraa()   // mitra
+{
+    string bayaar[] = {"<< PEMBAYARAN >>",
+                       "1. Indomaret",
+                       "2. Alfamart",
+					   "(x). main menu"};
+	int index = sizeof(bayaar)/sizeof(*bayaar);
+	loop(bayaar,index);
+}
+
+int main ()		// ========================================================================================= main 
+{
+	// var global =================
+	// menu home input
+	char homenu;
+	// tiket tersedia input
+	string tiket;
+	// payment input
+	char pembayaran;
+	char virtuala;// virtual akun
+	string gpay,linka;
+	char bank;    // mobile bank
+    string bca,livin;
+	char mitra;   // mitra
+    string inmaret,alfa;
+	
+	string tpay;  // tiket sudah di bayar untuk ruwayat 
+	
+	// condition to next page
+	char next;  
+	// ============================
+
+	// ============================================================================================================ menu home
+	lableHome: // menu
+	clear();
+    today();
+	cout << "1. pesan tiket" << endl; // pesan tiket
+    cout << "2. riwayat pembalian" << endl; 
+	cout << "(x) exit" << endl;
+
+	// input home menu
+	cout << endl << "input : "; cin >> homenu;
+	switch (homenu)
+	{
+		case '1': // menu tiket tersedia
+		lablePesanTiket:
+		clear();
+		tersedia();
+		cout << "input pilihan tiket : "; cin >> tiket;
+		if 		(tiket == "1")
+		{
+			clear();
+			 
+			tiket = "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                | HARGA         |\n| DOM257             | Citilink | Pontianak  | Jakarta       | jumat  15:00 - 16:35 | Rp 1.300.000  |";
+            cout << endl << tiket << endl;
+		}
+		else if (tiket == "2")
+		{
+			clear();
+			tiket = "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                | HARGA         |\n| DOM759             | Garuda   | Manokwari  | Padang        | sabtu  16:15 - 18:00 | Rp 2.600.000  |";
+            cout << endl << tiket << endl;
+		}
+		else if (tiket == "3")
+		{
+			clear();
+			tiket = "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                | HARGA         |\n| LN3476             | Lion Air | Jakarta    | bangkok(Thai) | minggu 17:10 - 19:50 | Rp 4.150.000  |";
+            cout << endl << tiket << endl;
+		}
+		else if (tiket == "4")
+		{
+			clear();
+			tiket = "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                | HARGA         |\n| DOM057             | Citilink | Pontianak  | Jakarta       | senin  18:00 - 19:35 | Rp 1.305.000  |";
+            cout << endl << tiket << endl;
+		}
+		else if (tiket == "5")
+		{
+			clear();
+			tiket = "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                | HARGA         |\n| DOM250             | Garuda   | Manokwari  | Padang        | selasa 19:15 - 21:00 | Rp 1.850.000  |";
+            cout << endl << tiket << endl;
+		}
+		else if (tiket == "6")
+		{
+			clear();
+			tiket = "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                | HARGA         |\n| DOM157             | Lion Air | Surabaya   | Jakarta       | rabu   22:10 - 23:50 | Rp 1.100.000  |";
+            cout << endl << tiket << endl;
+		}
+		else if (tiket == "x") //kembali home
+		{
+			goto lableHome;
+		}
+		else				   //layar tetap
+		{
+			goto lablePesanTiket;
+		}
+		break;
+
+        case '2':
+        clear();
+        goto history;
+        break;
+
+		case 'x': // exit 
+		clear();
+		goto exit;
+		break;
+
+		default: // back menu home
+		goto lableHome;
+		break;
+	}
+
+	// bayar tiket atau pilih ulang
+    lableTjadiTidak:
+	cout << endl << "1. lanjut pembayaran" << endl;
+	cout << "(x) kembali " << endl;
+	cout << endl << "input : "; cin >> next; cout << endl;
+	switch (next)
+	{
+	case '1':
+		clear();
+		cout << endl << tiket << endl;
+		goto dibayar;
+		break;
+	
+    case 'x':
+        clear();
+        goto lablePesanTiket;
+        break;
+	default:
+        labletiketbefor:
+        clear();
+		cout << endl << tiket << endl;
+		goto lableTjadiTidak;
+		break;
+	}
+
+
+	// ============================================================================================================ menu pembayaran 
+	dibayar:
+	cout << endl;
+	payment();
+	cout << endl << "input : "; cin >> pembayaran;
+	switch (pembayaran)
+	{
+		case '1': // virtual account
+		payvakun:
+		clear();
+		cout << endl;
+		vakun(); 
+		cout << endl << "input : "; cin >> virtuala; cout << endl;
+		if (virtuala == '1') // gopay
+		{
+			clear();
+			cout << endl << tiket << endl; 
+			cout << endl << "go pay" << endl;
+			cout << endl << "masukan nomor telpon : "; cin >> gpay;
+            cout << "konfirmasi kode penerbangan : "; cin >> tpay;
+            clear();
+            cout << "saldo gopay kamu telah terpotong" << endl; 
+            cout << endl << tiket << endl << endl;
+            cout << "selamat pembelian tiket kamu sukses kembali ke menu utama (y) : "; cin >> next;
+            goto lableHome;
+		}
+		else if (virtuala == '2') //link aja
+		{
+			clear();
+			cout << endl << tiket << endl; 
+			cout << endl << "link aja" << endl;
+			cout << endl << "masukan nomor telpon : "; cin >> linka;
+            cout << "konfirmasi kode penerbangan : "; cin >> tpay;
+            clear();
+            cout << "saldo link aja kamu telah terpotong" << endl; 
+            cout << endl << tiket << endl << endl;
+            cout << "selamat pembelian tiket kamu sukses kembali ke menu utama (y) : "; cin >> next;
+            goto lableHome;
+		}
+        else if (virtuala == 'x')
+        {
+            clear();
+            goto labletiketbefor;
+        }
+        else
+        {
+            goto payvakun;
+        }
+		break;
+
+		// bank
+		case '2': // mobile bank
+		paybank:
+		clear();
+		cout << endl;
+		mbank();
+        cout << endl << "input : "; cin >> bank; cout << endl;
+        if (bank == '1') // bca
+		{
+			clear();
+			cout << endl << tiket << endl; 
+			cout << endl << "BCA" << endl;
+			cout << endl << "masukan nomor rekening : "; cin >> bca;
+            cout << "konfirmasi kode penerbangan : "; cin >> tpay;
+            clear();
+            cout << "saldo BCA kamu telah terpotong" << endl; 
+            cout << endl << tiket << endl << endl;
+            cout << "selamat pembelian tiket kamu sukses kembali ke menu utama (y) : "; cin >> next;
+            goto lableHome;
+
+		}
+		else if (bank == '2') // mandiri
+		{
+			clear();
+			cout << endl << tiket << endl; 
+			cout << endl << "livin by mandiri" << endl;
+			cout << endl << "masukan nomor rekening : "; cin >> livin;
+            cout << "konfirmasi kode penerbangan : "; cin >> tpay;
+            clear();
+            cout << "saldo mandiri kamu telah terpotong" << endl;
+            cout << endl << tiket << endl << endl;
+            cout << "selamat pembelian tiket kamu sukses kembali ke menu utama (y) : "; cin >> next;
+            goto lableHome;
+
+		}
+        else if (bank == 'x')
+        {
+            clear();
+            goto labletiketbefor;
+        }
+        else
+        {
+            goto paybank;
+        }
+		break;
+		
+		// mitra
+		case '3': // kemitraan
+		paymitra:
+		clear();
+		cout << endl;
+	    mitraa();
+        cout << endl << "input : "; cin >> mitra; cout << endl;
+        if (mitra == '1') // indomart
+		{
+			clear();
+            cout << endl << tiket << endl; 
+            cout << endl << "konfirmasi kode penerbangan : "; cin >> tpay; cout << endl;
+            cout << endl << "Indomaret" << endl; 
+			cout << endl << " kode : 1nd0m4213t\n tunjukan kode berikut di indomaret terdekat\n kode akan reset setelah 30menit" << endl;
+			cout << endl << "(y) next : "; cin >> inmaret;
+            clear();
+            cout << endl << tiket << endl << endl;
+            cout << "selamat pembelian tiket kamu sukses kembali ke menu utama (y) : "; cin >> next;
+            goto lableHome;
+		}
+		else if (mitra == '2') // alfamart
+		{
+			clear();
+            cout << endl << tiket << endl; 
+            cout << endl << "konfirmasi kode penerbangan : "; cin >> tpay; cout << endl;
+			cout << endl << "alfamart" << endl; 
+			cout << endl << " kode : 4lf4m412t\n tunjukan kode berikut di alfamart terdekat\n kode akan reset setelah 30menit"   << endl;
+			cout << endl << "(y) next : "; cin >> alfa;
+            clear();
+            cout << endl << tiket << endl << endl;
+            cout << "selamat pembelian tiket kamu sukses kembali ke menu utama (y) : "; cin >> next;
+            goto lableHome;
+		}
+        else if (mitra == 'x')
+        {
+            clear();
+            goto labletiketbefor;
+        }
+        else
+        {
+            goto paymitra;
+        }
+		break;
+
+		case 'x':
+		clear();
+		goto lablePesanTiket;
+		break;
+	
+		default:
+		clear();
+        cout << endl << tiket  << endl;
+		goto dibayar;
+		break;
+	} 
+
+
+	// ============================================================================================================ histori pembalian 
+    history: 
+    if      (tpay == "DOM257")
+    {
+	    cout << "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n| DOM257             | Citilink | Pontianak  | Jakarta       | jumat  15:00 - 16:35 |";
+        cout << endl << "\nkembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+    else if (tpay == "DOM759")
+    {
+        cout << "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n| DOM759             | Garuda   | Manokwari  | Padang        | sabtu  16:15 - 18:00 |";
+        cout << endl << "\nkembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+    else if (tpay == "LN3476")
+    {
+        cout << "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n| LN3476             | Lion Air | Jakarta    | bangkok(Thai) | minggu 17:10 - 19:50 |";
+        cout << endl << "\nkembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+    else if (tpay == "DOM057")
+    {
+        cout << "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n| DOM057             | Citilink | Pontianak  | Jakarta       | senin  18:00 - 19:35 |";
+        cout << endl << "\nkembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+    else if (tpay == "DOM250")
+    {
+		cout << "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n| DOM250             | Garuda   | Manokwari  | Padang        | selasa 19:15 - 21:00 |";
+        cout << endl << "\nkembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+    else if (tpay == "DOM157")
+    {
+        cout << "| KODE PENERBANGAN   | MASKAPAI | DARI       | TUJUAN        | WAKTU                |\n| DOM157             | Lion Air | Surabaya   | Jakarta       | rabu   22:10 - 23:50 |";
+        cout << endl << "\nkembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+    else 
+    {
+        cout << "anda belum membeli tiket" << endl;
+        cout << endl << "kembali (y) : "; cin >> next;
+        goto lableHome;
+    }
+
+	// exit 
+	exit:
+	cout << endl << "<< exit >>" << endl;
+}
