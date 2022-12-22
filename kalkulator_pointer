@@ -1,0 +1,86 @@
+#include <iostream>
+
+using namespace std;
+
+void penambahan  (double *penyebut, double *pembilang, double *hasil);
+void pengurangan (double *penyebut, double *pembilang, double *hasil);
+void perkalian   (double *penyebut, double *pembilang, double *hasil);
+void pembagian   (double *penyebut, double *pembilang, double *hasil);
+void perpangkatan(double *penyebut, double *pembilang, double *hasil);
+
+int main()
+{
+    double penyebut, pembilang, hasil, temporari;
+    char next, oper;
+
+    lable_befor:
+    system("cls");
+    cout << "<< KALKULATOR >>" << endl;
+    cin >> penyebut >> oper >> pembilang; goto lable_operator; lable_after_hasil: cin >> oper >> pembilang;
+
+    lable_operator:
+    switch (oper)
+    {
+    case '+':
+        penambahan (&penyebut,&pembilang,&hasil);
+        break;
+    case '-':
+        pengurangan (&penyebut,&pembilang,&hasil);
+        break;
+    case 'x':
+        perkalian (&penyebut,&pembilang,&hasil);
+        break;
+    case ':':
+        pembagian (&penyebut,&pembilang,&hasil);
+        break;
+    case '^':
+        perpangkatan (&penyebut,&pembilang,&hasil);
+        break;
+    default:
+        break;
+    } 
+
+    system("cls");
+    cout << "hasil : " << hasil << endl;
+    cout << "input x/y/z: " ; cin >> next;
+
+    switch (next)
+    {
+    case 'y':
+        system("cls");
+        temporari = hasil;
+        penyebut = hasil; cout << hasil << " "; goto lable_after_hasil;
+        break;
+    case 'z':
+        goto lable_befor;
+    default:
+        break;
+    }
+
+}
+
+void penambahan (double *penyebut, double *pembilang, double *hasil)
+{
+    *hasil = *penyebut + *pembilang;
+}
+void pengurangan (double *penyebut, double *pembilang, double *hasil)
+{
+    *hasil = *penyebut - *pembilang;
+}
+void perkalian (double *penyebut, double *pembilang, double *hasil)
+{
+    *hasil = *penyebut * *pembilang;
+}
+void pembagian (double *penyebut, double *pembilang, double *hasil)
+{
+    *hasil = *penyebut / *pembilang;
+}
+void perpangkatan (double *penyebut, double *pembilang, double *hasil)
+{
+    double temp = 1;
+    for (double i = 1; i <= *pembilang; i++)
+    {
+        temp = temp * *penyebut;
+    }
+    *hasil = temp;
+}
