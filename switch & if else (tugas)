@@ -1,0 +1,79 @@
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{   
+
+    int operasi, penyakitM, penyakitJ;
+
+    //menu operasi
+    cout << "\n";
+    cout << "<< OPERASI YANG TERSEDIA >>" << endl;
+    cout << " (1)Oprasi Mata " << endl;
+    cout << " (2)Oprasi Jantung " << endl;
+    cout << " Masukan Jenis Operasi Sesuai Nomor : ";
+    cin  >> operasi;
+    
+    switch (operasi)
+    {
+    case 1:
+        //menu penyakit mata
+        cout << "\n";
+        cout << "<< DIAGNOSA PENYAKIT MATA >>" << endl;
+        cout << " (1)Katarak " << endl;
+        cout << " (2)Plus / Minus " << endl;
+        cout << " (3)Silinder " << endl;
+        cout << " Masukan Penyakit Sesuai Nomor : ";
+        cin  >> penyakitM;
+        cout << " \n " ;
+        break;
+    case 2:
+        //menu penyakit jantung
+        cout << "\n";
+        cout << "<< DIAGNOSA PENYAKIT JANTUNG >>" << endl;
+        cout << " (1)Jantung Koroner" << endl;
+        cout << " (2)Katup Jantung" << endl;
+        cout << " (3)Otot Jantung" << endl;
+        cout << " Masukan Penyakit Sesuai Nomor : ";
+        cin  >> penyakitJ;
+        cout << " \n ";
+        break;      
+    default:
+        break;
+    } 
+
+    //menu biaya penyakit mata
+    if (penyakitM == 1)
+    {
+        cout << "Biaya Operasi Mata Katarak Rp. 7.500.000" <<endl;              
+    }
+    else if (penyakitM == 2)
+    {
+        cout << "Biaya Operasi Mata Minus/Plus Rp. 5.000.000" <<endl;
+    }
+    else if (penyakitM == 3)
+    {
+        cout << "Biaya Operasi Mata Silinder Rp. 4.000.000" <<endl;
+    }
+    
+    //menu biaya penyakit jantung
+    else if (penyakitJ == 1)
+    {
+        cout << "Biaya Operasi Jantung Koroner Rp. 500.000.000" <<endl;
+    }
+    else if (penyakitJ == 2)
+    {
+        cout << "Biaya Operasi Katup Jantung Rp. 350.000.000" <<endl;
+    }
+    else if (penyakitJ == 3)
+    {
+        cout << "Biaya Operasi Otot Jantung Rp. 400.000.000" <<endl;
+    }
+    else
+    {
+        cout << "\n";
+        cout << "<< PILIHAN TIDAK TERSEDIA >>" <<endl;
+        cout << "\n";
+    }
+}
