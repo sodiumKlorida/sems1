@@ -1,0 +1,21 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int row;
+    cout << "row : "; cin >> row;
+    
+    outer loop to handle rows 
+    for(int i = 0; i < row; i++)
+    {
+        inner loop to handle columns
+        for(int j = 0; j < i; j++)
+        {
+            cout << "* ";
+        }
+        to give every single rows space
+        cout << endl;
+    }
+}
