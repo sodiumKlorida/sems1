@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+struct mahasiswa
+{
+    int NIM;
+    string prodi;
+    string fakultas;
+};
+
+
+int main()
+{
+    mahasiswa ezra;
+    cout << "input NIM : "; cin >> ezra.NIM; cout << "benar\n";  
+    cout << "input prodi :"; cin >> ezra.prodi; cout << "benar\n";
+    cout << "input fakultas : "; cin >> ezra.fakultas; cout << "benar\n";
+}
+
+// struck
