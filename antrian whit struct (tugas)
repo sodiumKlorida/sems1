@@ -1,0 +1,96 @@
+#include<iostream>
+#include<queue>
+
+using namespace std;
+
+struct data
+{
+    int NIM;
+    string name;
+    string prodi;
+};
+
+void display_queue(queue<data> orang)
+{
+    while(!orang.empty())
+    {
+        cout << "nama  : "<< orang.front().name << endl;
+        cout << "NIM   : "<< orang.front().NIM  << endl;
+        cout << "prodi : "<< orang.front().prodi<< endl;
+        orang.pop();
+    }
+}
+
+void input_data(queue<data> *mahasiswa, data *temp)
+{
+    cout << "input nama  : "; cin >> temp->name;
+    cout << "input NIM   : "; cin >> temp->NIM;
+    cout << "input prodi : "; cin >> temp->prodi; 
+    mahasiswa->push(*temp);
+}
+
+void jumlah(queue<data> *mahasiswa)
+{
+    if (mahasiswa->empty())
+    {
+        cout << "antrian kosong\n";
+    }
+    else
+    {
+        cout << "jumlah antrian saat ini : " << mahasiswa->size() << endl;  
+    }
+}
+
+void panggil(queue<data> *mahasiswa)
+{
+    if (mahasiswa->empty())
+    {
+        system("cls");
+        cout << "antrian kosong" << endl;
+    }
+    else
+    {
+        system("cls");
+        mahasiswa->pop();
+        cout << "antrian sekarang \n\n"; 
+        display_queue(*mahasiswa);
+    }
+}
+
+int main()
+{
+    data temp;
+    queue<data> mahasiswa;
+    char pil, next;
+    lable_menu:
+    system("cls");
+    cout << "1.antri\n";
+    cout << "2.jumlah yang antri\n";
+    cout << "3.hapus antrian\n";
+    cout << "pilih : "; cin >> pil;
+
+    if (pil == '1')
+    {
+        system("cls");
+        input_data(&mahasiswa, &temp);
+        cout << "kembali ke menu utama (y) : "; cin >> next; if (next == 'y'){goto lable_menu;}
+    }
+    else if (pil == '2')
+    {
+        system("cls");
+        jumlah(&mahasiswa);
+        cout << "kembali ke menu utama (y) : "; cin >> next; if (next == 'y'){goto lable_menu;}
+    }
+    else if (pil == '3')
+    {
+        system("cls");
+        panggil(&mahasiswa);
+        cout << "kembali ke menu utama (y) : "; cin >> next; if (next == 'y'){goto lable_menu;}
+    }
+    else
+    {
+        system("cls");
+        cout << "exit";
+    }
+}
+
